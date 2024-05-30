@@ -38,7 +38,7 @@
             color: white;
         }
         .custom-table-bg {
-            background-color: rgb(225, 241, 244) !important;
+            background-color: rgb(110, 18, 239) !important;
             color: white;
             padding: 20px;
             border: none !important;

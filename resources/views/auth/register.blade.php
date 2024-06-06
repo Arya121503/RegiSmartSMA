@@ -1,14 +1,13 @@
 @extends('layouts.authapp')
 
 @section('content')
-<body>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-4">
                 <div class="p-5 rounded-3 custom-table-bg">
                     <div class="mb-3 text-center">
-                        <h4 class="portal-login-title text-dark">Portal Registration</h4>
-                        <p class="text-dark">Selamat datang di layanan RegiSmartSMA</p>
+                        <h4 class="portal-login-title">Portal Registration</h4>
+                        <p>Selamat datang di layanan RegiSmartSMA</p>
                     </div>
                     <hr>
                     <form method="POST" action="{{ route('register') }}">

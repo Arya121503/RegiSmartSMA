@@ -55,7 +55,7 @@
                         <p>Selamat datang di layanan RegiSmartSMA</p>
                     </div>
                     <hr>
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ ('register') }}">
                         @csrf
                         <div class="mb-3">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Enter Your Name">
@@ -88,7 +88,7 @@
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center custom-btn">
                                 <i class="bi bi-box-arrow-in-right me-2"></i>
-                                {{ __('Register') }}
+                                {{ ('Register') }}
                             </button>
                         </div>
                     </form>

@@ -3,7 +3,7 @@
 @section('content')
     <div id="main-wrapper">
         <div class="nav-header">
-            <a href="javascript:void(0);" class="brand-logo" id="logoutBtn">
+            <a href="{{ route('index') }}" class="brand-logo">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="dark"
                     class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -11,7 +11,7 @@
                     <path fill-rule="evenodd"
                         d="M4.854 11.854a.5.5 0 0 0 0-.708L2.707 9.5H10.5a.5.5 0 0 0 0-1H2.707l2.147-2.146a.5.5 0 0 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z" />
                 </svg>
-                <p class="brand-title" width="124px" height="33px" style="font-size: 20px;">Logout</p>
+                <p class="brand-title" style="font-size: 20px;">Kembali ke Dashboard</p>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -29,7 +29,7 @@
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
                             <div class="dashboard_bar">
-                                Dashboard Siswa
+                                Form Data Siswa
                             </div>
                         </div>
                     </div>
@@ -53,13 +53,6 @@
                             <i class="bi bi-file-earmark-plus"></i>
                             <span class="nav-text">Input Data</span>
                         </a></li>
-                        <li>
-                            <a href="{{ route('upload.berkas') }}" aria-expanded="false">
-                                <i class="bi bi-archive"></i>
-                                <span class="nav-text">Upload Berkas</span>
-                            </a>
-                        </li>
-
                 </ul>
             </div>
         </div>
@@ -70,12 +63,47 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Rekapitulasi Pendaftaran</h4>
-                                </<div class="card-body">
-                                <!-- Isi Konten Rekapitulasi Pendaftaran -->
-                                <p>Jumlah pendaftar: 500</p>
-                                <p>Jumlah diterima: 200</p>
-                                <p>Jumlah cadangan: 50</p>
+                                <h4 class="card-title">Masukan Data </h4>
+                            </div>
+                            <div class="card-body">
+                                @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+                                <form action="{{ route('data.siswa.submit') }}" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="nama_lengkap">Nama Lengkap</label>
+                                        <input type="text" name="nama_lengkap" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tempat_tanggal_lahir">Tempat Tanggal Lahir</label>
+                                        <input type="text" name="tempat_tanggal_lahir" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="alamat">Alamat</label>
+                                        <input type="text" name="alamat" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="no_hp">No HP</label>
+                                        <input type="text" name="no_hp" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nama_ayah">Nama Ayah</label>
+                                        <input type="text" name="nama_ayah" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nama_ibu">Nama Ibu</label>
+                                        <input type="text" name="nama_ibu" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="asal_sekolah">Asal Sekolah</label>
+                                        <input type="text" name="asal_sekolah" class="form-control" required>
+                                    </div>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </form>
                             </div>
                         </div>
                     </div>

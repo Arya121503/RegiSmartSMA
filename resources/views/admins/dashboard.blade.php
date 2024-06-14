@@ -55,17 +55,14 @@
                             </div>
                         </a>
                     </li>
-                    <li><a href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-025-dashboard"></i>
-                            <span class="nav-text">Dashboard</span>
-                        </a></li>
-                    <li><a href="javascript:void()" aria-expanded="false">
+
+                    {{-- <li><a href="{{ route('siswa.siswa') }}" aria-expanded="false">
                             <i class="flaticon-050-info"></i>
                             <span class="nav-text">Data Siswa</span>
-                        </a></li>
-                    <li><a href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-043-menu"></i>
-                            <span class="nav-text">Table</span>
+                        </a></li> --}}
+                        <li><a href="{{ route('berkas.index') }}" aria-expanded="false">
+                            <i class="bi bi-file-earmark-text"></i>
+                            <span class="nav-text">Data Berkas</span>
                         </a></li>
                 </ul>
             </div>
@@ -76,7 +73,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="card">
-                            <div class="card-header">
+                            {{-- <div class="card-header">
                                 <h4 class="card-title">Rekapitulasi Pendaftaran</h4>
                             </div>
                             <div class="card-body">
@@ -84,7 +81,33 @@
                                 <p>Jumlah pendaftar: 500</p>
                                 <p>Jumlah diterima: 200</p>
                                 <p>Jumlah cadangan: 50</p>
-                            </div>
+                            </div> --}}
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nama Lengkap</th>
+                                        <th>Tempat Tanggal Lahir</th>
+                                        <th>Alamat</th>
+                                        <th>No HP</th>
+                                        <th>Nama Ayah</th>
+                                        <th>Nama Ibu</th>
+                                        <th>Asal Sekolah</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($siswas as $siswa)
+                                        <tr>
+                                            <td>{{ $siswa->nama_lengkap }}</td>
+                                            <td>{{ $siswa->tempat_tanggal_lahir }}</td>
+                                            <td>{{ $siswa->alamat }}</td>
+                                            <td>{{ $siswa->no_hp }}</td>
+                                            <td>{{ $siswa->nama_ayah }}</td>
+                                            <td>{{ $siswa->nama_ibu }}</td>
+                                            <td>{{ $siswa->asal_sekolah }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
